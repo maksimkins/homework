@@ -16,6 +16,8 @@ public class Program
 
         int input;
 
+        double result = default;
+
         while(true)
         {
             input = menu.AwesomeMenu();
@@ -23,19 +25,27 @@ public class Program
             switch ((OperationsEnum)input)
             {
                 case OperationsEnum.sum:
-                    //menu.AwesomeMenu();
+                    result = MyCalc.Sum();
                     break;
 
                 case OperationsEnum.dif:
-                    //menu.AwesomeMenu();
+                    result = MyCalc.Dif();
                     break;
 
                 case OperationsEnum.mult:
-                    //menu.AwesomeMenu();
+                    result = MyCalc.Mult();
                     break;
 
                 case OperationsEnum.div:
-                    //menu.AwesomeMenu();
+                    try
+                    {
+                        result = MyCalc.Div();
+                    }
+                    catch (DivideByZeroException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        Thread.Sleep(2000);
+                    }
                     break;
             }
         }
